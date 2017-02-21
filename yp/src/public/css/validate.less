@@ -1,0 +1,170 @@
+@rem:0.07rem;
+.regist{
+    background: url(../../public/images/reg_b.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    height: 980px;
+    padding-top: 91px;
+    box-sizing: border-box;
+}
+
+.regist_wrap{
+    width: 555px;
+    margin: 60px auto 0;
+    h2{
+        border: 1px solid @cw;
+        .fonts(18px);
+        .bdr(5px);
+        color: @cw;
+        line-height: 50px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .regist_two{
+        border: 1px solid @cw;
+        .bdr(5px);
+        .J_secTabs{
+            .cf();
+            text-align: center;
+            a{
+                float: left;
+                display: inline-block;
+                width: 50%;
+                line-height: 50px;
+                .fonts(18px);
+                .bdr(5px);
+                color: @cw;
+                &.selected{
+                    background: @cw;
+                    color: @cgolden;
+                    .bdr(0);
+                }
+            }
+        }
+    }
+}
+
+
+.vali_list{
+    background: @cw;
+    padding: 20px 0 0;
+    .bdr(5px);
+    h4{
+        position: relative;
+        .fonts(18px);
+        color: #5d5f63;
+        padding: 0 0 15px;
+        background: @cw;
+        margin: 0 25px 15px;
+        border-bottom: 1px solid #f5f5f5;
+        &:before{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: @cgolden;
+        }
+    }
+    ul{
+        width: 450px;
+        margin: 0 auto;
+    }
+    li{
+        position: relative;
+        line-height: 45px;
+        margin-bottom: 10px;
+        label{
+            display: inline-block;
+            .fonts(16px);
+            color: #75777a;
+            width: 130px;
+            text-align: right;
+        }
+        input{
+            width: 315px;
+            height: 45px;
+            border: 1px solid #ebebeb;
+            background: #f5f5f5;
+            .bdr(3px);
+            padding-left: 15px;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"]{
+            width: auto;
+            height: auto;
+            margin-right: 6px;
+        }
+        .registbtn{
+            .fonts(18px);
+            color: @cw;
+            outline: none;
+            border: 0;
+            padding: 0;
+            box-shadow: 2px 2px 2px @cgolden;
+            background: -webkit-linear-gradient(#d8b26a, #cca965);
+        }
+        
+        &:first-child{
+            text-align: center;
+        }
+        &.checkbox{
+            .fonts(12px);
+            line-height: 10px;
+            color: #75777a;
+            margin-bottom: 25px;
+            a{ color: @cgolden; }
+        }
+        &.vali_code{
+            input[type="text"]{
+                width: 180px;
+                margin-right: 10px;
+            }
+            input[type='button'],img{
+                border: 0;
+                width: 125px;
+                height: 45px;
+                color: @cw;
+                padding: 0;
+                background: @cgolden;
+                vertical-align: bottom;
+            }
+        }
+    }
+    .heaven{
+        color: #5d5f63;
+        .fonts(16px);
+        border-top: 1px solid #eee;
+        padding: 10px 0 15px;
+        text-align: center;
+        a{ color: @cgolden; }        
+    }
+}
+
+//login
+.login_wrap{
+    width: 400px;
+    ul{
+        width: 320px;
+        li{
+            .cf();
+            a{
+                .fonts(12px);
+                color: #0b69aa;
+                float: right;
+            }
+        }
+    }
+}
+
+.login_list{
+    h4{
+        margin: 0 40px 15px;
+    }
+}
+
+.regist_list{
+    .errorTips{
+        left:140px;
+    }
+}

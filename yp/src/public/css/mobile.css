@@ -1,0 +1,38 @@
+body {
+  font-size: 4vw;
+  font-family: "Microsoft YaHei";
+  color: #666666;
+  margin-bottom: 20vw;
+}
+.pozbottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+.mb {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+a {
+  color: #1B7FDC;
+}

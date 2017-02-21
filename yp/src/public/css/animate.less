@@ -1,0 +1,136 @@
+
+@rem:0.07rem;
+@orange:#E86F5F;
+.animateBegin {
+  left:0;
+  top:0;
+  color: #ccc;
+  font-size:.28rem;
+  opacity: 0;
+  display: none;
+}
+.animateBefore {
+  left: -8%;
+  top:-55%;
+  color: @orange;
+  font-size:.22rem;
+  opacity: 1;
+  display: block;
+}
+
+.keyframes(@name){   //声明一个动画函数，只需要写一个函数就可以到处调用了
+  @keyframes @name
+  {
+    from {
+      .animateBegin;
+    }
+    to {
+      .animateBefore;
+    }
+  }
+  @-moz-keyframes @name /* Firefox */
+  {
+    from {
+      .animateBegin;
+    }
+    to {
+      .animateBefore;
+    }
+  }
+
+  @-webkit-keyframes @name /* Safari 和 Chrome */
+  {
+    from {
+      .animateBegin;
+    }
+    to {
+      .animateBefore;
+    }
+  }
+
+  @-o-keyframes @name /* Opera */
+  {
+    from {
+      .animateBegin;
+    }
+    to {
+      .animateBefore;
+    }
+  }
+}
+
+.keyframesAfter(@name){   //声明一个动画函数，只需要写一个函数就可以到处调用了
+  @keyframes @name
+  {
+    from {
+      .animateBefore;
+    }
+    to {
+      .animateBegin;
+    }
+  }
+  @-moz-keyframes @name /* Firefox */
+  {
+    from {
+      .animateBefore;
+    }
+    to {
+      .animateBegin;
+    }
+  }
+
+  @-webkit-keyframes @name /* Safari 和 Chrome */
+  {
+    from {
+      .animateBefore;
+    }
+    to {
+      .animateBegin;
+    }
+  }
+
+  @-o-keyframes @name /* Opera */
+  {
+    from {
+      .animateBefore;
+    }
+    to {
+      .animateBegin;
+    }
+  }
+}
+
+
+.animation(@animation-name,     //声明一个过渡函数，只需要声明一个函数就可以到处调用了
+@animation-duration,
+@animation-timing-function,
+@animation-delay,
+@animation-iteration-count,
+@animation-direction,
+@animation-fill-mode)
+{
+  animation: @arguments;
+  /* Firefox: */
+  -moz-animation: @arguments;
+  /* Safari 和 Chrome: */
+  -webkit-animation: @arguments;
+  /* Opera: */
+  -o-animation: @arguments;
+}
+
+
+
+/*初始动画*/
+//banner--------------------------------------------------
+.keyframes(formInput);//banner动画1
+.keyframesAfter(formInputAfter);
+
+/*执行动画过渡*/
+//banner---------------------------------------------
+.form-animated{
+ .animation(formInput,0.4s,ease-in-out,0s,1,normal,forwards)
+}
+
+.form-animated-native{
+  .animation(formInputAfter,0.4s,ease-in-out,0s,1,normal,forwards)
+}

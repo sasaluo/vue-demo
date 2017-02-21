@@ -1,0 +1,166 @@
+/* LESS Document */
+
+/* 清除浮动 */
+.cf(){
+	// IE7-
+	*zoom: 1;
+	// others
+	&:after {
+		content: " ";
+		clear: both;
+		display: table;
+  }
+}
+
+
+*:focus {outline: none;}
+
+a{
+    text-decoration: none;
+}
+a:-webkit-any-link {
+    text-decoration: none;
+}
+/*常用颜色*/
+@c0:#000;
+@cw:#fff;
+@cfonts: #505050;
+@cfont:#5a5a5a;
+@cred:#b81c2b;
+@c3:#333;
+@c6:#666;
+@c9:#999;
+@cgolden:#d8b26a;
+@rem:0.07rem;
+@orange:#E86F5F;
+
+/*字体大小*/
+.fonts(@fontsize){
+    font-size: @fontsize;
+}
+
+/*单行载断*/
+.clip(){
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: clip;
+}
+
+/*单行载断溢出省略号*/
+.ellipsis(){
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+/*行截断溢出省略号*/
+.spil(@num){
+    overflow:hidden;
+    display:-webkit-box;
+    word-break: break-all;
+    -webkit-line-clamp:@num;
+    -webkit-box-orient: vertical;    
+}
+
+//过度
+.trans(@time){
+    transition: @time;
+   -webkit-transition: @time;
+   -moz-transition: @time;
+   -ms-transition: @time;
+   -o-transition: @time;
+}
+
+/*边框圆角*/
+.bdr(@borderadius){
+    border-radius:@borderadius;
+    -moz-border-radius:@borderadius;
+    -webkit-border-radius:@borderadius;
+    -ms-border-radius:@borderadius;
+    -o-border-radius:@borderadius;
+}
+
+.rotate(@rotate){
+    transform: rotate(@rotate);
+    -webkit-transform: rotate(@rotate);
+    -moz-transform: rotate(@rotate);
+    -ms-transform: rotate(@rotate);
+    -o-transform: rotate(@rotate);
+}
+
+/*配模式定位*/
+.pos(@pos){ position: @pos; }
+
+
+//斜线
+.bias(@width, @height, @color:#000, @line_width:1px){
+    @w:sqrt(@width * @width + @height * @height);
+    @deg:atan(@height / @width) * ( 180 / pi());
+    background:@color;
+    height:@line_width;
+    transform-origin:100% 0;
+    -webkit-transform-origin:100% 0;
+    -moz-transform-origin:100% 0;
+    -ms-transform-origin:100% 0;
+    -o-transform-origin:100% 0;
+    
+    transform:rotate(unit(-@deg, deg));
+    -webkit-transform:rotate(unit(-@deg, deg));
+    -moz-transform:rotate(unit(-@deg, deg));
+    -ms-transform:rotate(unit(-@deg, deg));
+    -o-transform:rotate(unit(-@deg, deg));
+    width:~'@{w}px';
+    position:absolute;
+    top:floor(-@line_width / 2);
+    right:0;
+    z-index:1;
+}
+
+.hide{ display: none; }
+
+//三角匹配模式
+.triangle(top,@w:5px,@c:#ccc){
+    border-width:@w;
+    border-color:transparent transparent @c transparent;
+    border-style:dashed dashed solid dashed;
+}
+.triangle(bottom,@w:5px,@c:#ccc){
+    border-width:@w;
+    border-color:@c transparent transparent 
+    transparent;
+    border-style:solid dashed dashed dashed;
+}
+.triangle(left,@w:5px,@c:#ccc){
+    border-width:@w;
+    border-color:transparent @c transparent transparent;
+    border-style:dashed solid dashed dashed;
+}
+.triangle(right,@w:5px,@c:#ccc){
+    border-width:@w;
+    border-color:transparent transparent transparent @c;
+    border-style: dashed dashed dashed solid;
+}
+
+.transtion(@time:0.3s,@method:ease-in-out) {
+    -webkit-transition: all @time @method;
+    -moz-transition: all @time @method;
+    -ms-transition: all @time @method;
+    -o-transition: all @time @method;
+}
+
+
+.translates(@leftL:-50%,@leftT:-50%){
+    -webkit-transform: translate(@leftL,@leftT);
+    -moz-transform: translate(@leftL,@leftT);
+    -ms-transform: translate(@leftL,@leftT);
+    -o-transform: translate(@leftL,@leftT);
+    transform: translate(@leftL,@leftT);
+}
+
+.input-default{
+    -webkit-tap-highlight-color:rgba(255,0,0,0);
+    outline:none;
+}
+
+.input-default:focus{
+    -webkit-tap-highlight-color:rgba(255,0,0,0);
+}

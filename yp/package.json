@@ -1,0 +1,44 @@
+{
+  "name": "vue1.0",
+  "version": "0.0.0",
+  "description": "A vue project.",
+  "private": true,
+  "keywords": [],
+  "scripts": {
+    "dev": "cooking watch -p",
+    "dist": "cooking build -p",
+    "deploy": "cooking build --no-color",
+    "test": "cooking test karma start --single-run"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "animate.css": "^3.5.2",
+    "babel-polyfill": "*",
+    "element-ui": "^1.0.8",
+    "node-waves": "^0.7.5",
+    "swiper": "^3.4.1",
+    "vue": "^2.0.1",
+    "vue-axios": "^1.2.2",
+    "vue-lazyload": "^1.0.0-rc10",
+    "vue-router": "^2.1.1",
+    "vuex": "^2.1.1",
+    "waves": "^0.1.1"
+  },
+  "devDependencies": {
+    "axios": "^0.15.3",
+    "cooking-vue2": "*",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "reset.css": "^2.0.2",
+    "weixin-js-sdk": "^1.2.0"
+  },
+  "main": "cooking.conf.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.oschina.net/1029563229/IFD.git"
+  },
+  "author": ""
+}
