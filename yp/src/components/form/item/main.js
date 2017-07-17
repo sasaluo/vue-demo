@@ -16,3 +16,11 @@ export const setPassword = r => {
 export const setCode = r => {
     require(['./setCode.vue'], r)
 };
+
+export const getCode = r => {
+    require(['./getCode.vue'], r)
+};
+
+export const loginOther = r => {
+    require(['./loginOther.vue'], r)
+};

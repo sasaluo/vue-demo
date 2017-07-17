@@ -4,7 +4,18 @@
 export const Good = {
     state:{
         time:0,
-        msg:''
+        msg:'',
+        ajaxInfo:{
+            url:'http://172.16.5.56:8084',
+            appId:'200000014',
+            clientIp:'123'
+        },
+        registerInfo:{
+            username:'',
+            providerUid:'',
+            accountType:'mobile',
+            validateCode:''
+        }
     },
 
     mutations:{
@@ -14,6 +25,7 @@ export const Good = {
 
         ShowToast (state,msg){
             state.msg = msg;
+            state.time = 0;
             state.time += 3;
         }
     },

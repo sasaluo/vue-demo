@@ -13,7 +13,7 @@ cooking.set({
       log: true,
       publicPath: '/',
       port: 8080,
-      hostname: '0.0.0.0',
+      hostname: 'localhost',
       protocol: 'http:',
   },
   resolve: {

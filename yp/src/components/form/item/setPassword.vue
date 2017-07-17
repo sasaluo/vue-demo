@@ -33,12 +33,52 @@
         },
 
         methods:{
+            register() {
+                if (this.$store.state.Good.registerInfo.username == '') {
+                    this.$store.dispatch('showToast','您还没有填写手机号，为您跳转到注册页面！');
+                    this.$router.push('/form/to/register');
+                } else {
+                    this.axios.post(this.$store.state.Good.ajaxInfo.url + '/moses/user/register', {
+                        appId:this.$store.state.Good.ajaxInfo.appId,
+                        clientIp:this.$store.state.Good.ajaxInfo.clientIp,
+                        username:this.$store.state.Good.registerInfo.username,
+                        accountType:this.$store.state.Good.registerInfo.accountType,
+                        password:this.$store.state.Good.registerInfo.password,
+                        providerUid:'',
+                        validateCode:this.$store.state.Good.registerInfo.validateCode
+                    })
+                        .then(resultData => {
+                            console.log(resultData.data);
+                            if (resultData.data.message == '验证码错误') {
+                                this.$store.dispatch('showToast','手机验证码错误或者已过期，请重新获取~').then(() => {
+                                    this.$router.push('/form/to/register');
+                                });
+                                return;
+                            }
+                            if (resultData.data.returnCode == 1000) {
+                                this.$store.dispatch('showToast','注册成功~').then(() => {
+                                    this.$router.push('/form/to/login');
+                                });
+                            } else {
+                                this.$store.dispatch('showToast',resultData.data.message).then(() => {
+                                    if (resultData.data.returnCode == 1005) {
+                                        this.$router.push('/form/to/register');
+                                    }
+                                });
+                            }
+                        })
+                        .catch(() => {
+                            this.$store.dispatch('showToast','网络情况不是很好，请稍后再试~');
+                        })
+                }
+            },
+
             setPassword() {
-                this.$router.push('/form/to/setCode');
+                this.register();
             },
 
             locationHref() {
-                this.$router.push('/form/to/setCode');
+                this.register();
             }
         },
 

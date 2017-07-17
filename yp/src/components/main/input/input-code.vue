@@ -112,7 +112,7 @@
 
     .input-default{
         display: inline-block;
-        width: 6.3rem;
+        width: 84vw;
         font-size:.28rem;
         font-family:"Microsoft YaHei";
         height:@rem * 4;

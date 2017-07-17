@@ -23,6 +23,9 @@
             <div class="login-input-code-item login-input-code-item-word" v-show="time > 0">{{time}}S获取</div>
             <div class="login-input-code-item login-input-code-item-voice" @click="getCode('voice')">语音验证</div>
         </div>
+        <div class="login-input-see" v-show="ifSee">
+            <img @click="onPassword($event)" src="/static/images/form/offPassword.jpg" alt="">
+        </div>
     </div>
 </template>
 
@@ -39,7 +42,7 @@
             }
         },
 
-        props:['value','type','place','set'],
+        props:['value','type','place','set','ifSee'],
 
         methods: {
             focus(e) {
@@ -78,7 +81,7 @@
                         break;
                     case 'code':
                         let codeValue = value
-                            .substr(0,4);
+                            .substr(0,6);
                         if (codeValue !== value) {
                             this.$refs.input.value = codeValue;
                         }
@@ -115,6 +118,19 @@
                         }
                     },1000)
                 });
+            },
+
+            onPassword(e) {
+                this.$emit('propMethods',() => {
+                    let input = document.querySelectorAll('.input-default')[0];
+                    if (input.type == 'password') {
+                        e.target.src = e.target.src.replace('off','on');
+                        input.type = 'text';
+                    } else {
+                        e.target.src = e.target.src.replace('on','off');
+                        input.type = 'password';
+                    }
+                });
             }
         },
 
@@ -143,7 +159,7 @@
 
     .input-default{
         display: inline-block;
-        width: 6.3rem;
+        width: 84vw;
         font-size:.28rem;
         font-family:"Microsoft YaHei";
         height:@rem * 4;
@@ -192,6 +208,11 @@
                     padding-left: @rem * 6.7;
                 }
             }
+        }
+        &-see{
+            position: absolute;
+            right:0;
+            top:0;
         }
     }
     .login-input{

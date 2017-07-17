@@ -1,5 +1,7 @@
 <template>
-    <transition name="fade">
+    <transition
+            enter-active-class="animated fadeIn"
+            leave-active-class="animated fadeOut">
         <div class="toast" v-show="liveTime > 0">
             {{msg}}
         </div>

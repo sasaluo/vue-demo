@@ -5,6 +5,7 @@
                 leave-active-class="animated fadeOutUp">
             <router-view></router-view>
         </transition>
+        <toast></toast>
     </div>
 </template>
 
@@ -51,7 +52,7 @@
         -moz-box-sizing: content-box;
         box-sizing: content-box;
     }
-    #login,#register,#setPassword{
+    #login,#register,#setPassword,#getcode{
         position: fixed;
         left:0;
         top:0;

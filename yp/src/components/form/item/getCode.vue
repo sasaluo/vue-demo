@@ -1,8 +1,5 @@
 <template>
-    <div id="register">
-        <div class="login_logo">
-            <img class="icon_logo" src="/static/images/form/user@2x.png" alt="">
-        </div>
+    <div id="getcode">
         <div class="login-form">
             <el-row>
                 <el-col :span="22" :offset="2">
@@ -12,20 +9,14 @@
                     <div class="login-form-item">
                         <inputAll v-on:propMethods="getCode" ref="child" set="code" place="请输入验证码" type="number" v-model="msg.code"></inputAll>
                     </div>
-                    <div class="login-form-read">
-                        <img src="/static/images/form/select@2x.png" alt="">我已阅读并同意<router-link to="/form/to/register">用户协议</router-link>
+                    <div class="login-form-item">
+                        <buttonAll :boo="boo" v-on:propMethods="register" type="register" value="确定"></buttonAll>
                     </div>
-                    <buttonAll :boo="boo" v-on:propMethods="register" type="register" value="下一步"></buttonAll>
                 </el-col>
             </el-row>
         </div>
-        <div class="login-form-register">
-            <h3>活动规则:</h3>
-            <p>①流量发放仅对广东移动有效</p>
-            <p>②注册后15天内，我们会将流量以流量券的形式发送到您的岭南优品账号</p>
-            <div>
-                <slideCheck v-on:propMethods="CheckCode" :boolean="ifTouch"></slideCheck>
-            </div>
+        <div>
+            <slideCheck v-on:propMethods="CheckCode" :boolean="ifTouch"></slideCheck>
         </div>
     </div>
 </template>
@@ -37,7 +28,7 @@
     import slideCheck from 'src/components/main/formInput/slideCheck.vue';
     import {Checks} from 'src/public/js/Verification';
     export default {
-        name: 'register',
+        name: 'getCode',
 
         data() {
             return {
@@ -65,7 +56,6 @@
                             this.ifTouch = 1;
                             return;
                         }
-                        let loading = this.$loading({fullscreen:true,text:'正在发送短信'});
                         this.axios.post(this.$store.state.Good.ajaxInfo.url + '/moses/user/sendValidateCode', {
                             'clientIp':this.$store.state.Good.ajaxInfo.clientIp,
                             'appId':this.$store.state.Good.ajaxInfo.appId,
@@ -79,15 +69,10 @@
                                     this.ifTouch = 0;
                                     this.message.sendCode = true;
                                     Countdown();
-                                    loading.close();
                                 });
                             })
                             .catch(() => {
-                                this.$store.dispatch('showToast','网络情况不是很好，请稍后再试~').then(() => {
-                                    this.ifTouch = 0;
-                                    this.message.sendCode = true;
-                                    loading.close();
-                                });
+                                this.$store.dispatch('showToast','网络情况不是很好，请稍后再试~');
                             });
                     } else {
                         this.$store.dispatch('showToast','手机格式错误');
@@ -110,7 +95,7 @@
                     }
                     this.$store.state.Good.registerInfo.username = this.msg.tel;
                     this.$store.state.Good.registerInfo.validateCode = this.msg.code;
-                    this.$router.push('/form/to/setCode');
+                    this.$router.push('/form/to/setCode?type=reset  ');
                 } else {
                     this.$store.dispatch('showToast','手机验证码格式错误');
                 }

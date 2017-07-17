@@ -33,6 +33,14 @@ const routes = [
             {
                 path:'setCode',
                 component:login.setCode
+            },
+            {
+                path:'getCode',
+                component:login.getCode
+            },
+            {
+                path:'loginOther',
+                component:login.loginOther
             }
         ]
     },
